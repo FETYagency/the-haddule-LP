@@ -1,0 +1,237 @@
+*{
+    box-sizing: border-box;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* variables */
+:root{
+    --Violet: hsl(257, 40%, 49%);
+    --SoftMagenta: hsl(300, 69%, 71%);
+    --FF-B: 'Open Sans', sans-serif;
+    --FF-H: 'Poppins', sans-serif;
+}
+img{
+    max-width: 100%;
+}
+
+.max-size{
+    min-height: 100vh;
+    padding-inline: 2rem;
+    position: relative;
+}
+
+
+body{
+    position: relative;
+    
+}
+body::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url(../images/bg-mobile.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    
+}
+header{
+    z-index: 1;
+}
+header>img{
+    width: min(180px, 100%);
+    padding-block: 2rem 0;
+}
+section{
+    z-index: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 4rem;
+    color: white;
+    text-align: center;
+    padding-block: 4rem;
+}
+h1{
+    font-size: 2rem;
+    font-family: var(--FF-H);
+    font-weight: 700;
+    line-height: 2.3rem;
+}
+p{
+    font-family: var(--FF-B);
+    line-height: 1.5rem;
+}
+button{
+    border: none;
+    background-color: white;
+    padding-inline: 5rem;
+    padding-block: 1rem;
+    border-radius: 30px;
+    transition: all .8s ease;
+    color: var(--Violet);
+}
+button:hover{
+    background-color: var(--SoftMagenta);
+    color: white;
+}
+article{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+    align-items: center;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 2rem;
+}
+ul>li{
+    display: inline-block;
+}
+a{
+    font-size: 1.5rem;
+    color: white;
+    position: relative;
+    transition: all .3s ease;
+
+}
+a::after{
+    content: "";
+    height: 35px;
+    width: 35px;
+    border: 2px solid white;
+    position: absolute;
+    top: -6px;
+    left: -9px;
+    border-radius: 50%;
+    transition: all .3s ease;
+
+}
+ul li:nth-child(2) a{
+    padding-inline: 3rem;
+}
+li:hover a{
+    color: var(--SoftMagenta);
+}
+li:hover a::after{
+    border-color: var(--SoftMagenta);
+}
+ul li:nth-child(2) a::after{
+    top: -6px;
+    left: 39px;
+}
+ul li:nth-child(1) a::after{
+    top: -6px;
+    left: -11px;
+}
+ul li:nth-child(3) a::after{
+    top: -6px;
+    left: -8px;
+}
+
+
+@media(min-width:1200px){
+    body{
+        background-color: var(--Violet);
+    }
+    body::after{
+        background-image: url(../images/bg-desktop.svg);
+    }
+    .max-size{
+        min-height: 100vh;
+        padding-inline: 6rem;
+        max-width: 1500px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        grid-template-areas: 
+        'Htop'
+        'span'
+        'Fbottom'
+        ;
+        place-content: center;
+        gap: 2rem;
+    }
+    header{
+        grid-area: Htop;
+        align-items: center;
+    }
+    header>img{
+        width: min(240px, 100%);
+    }
+    section{
+        flex-flow: row nowrap;
+        grid-area: span;
+        padding-block: 0rem 0rem;
+    }
+    section>img{
+        width: min(1000px, 100%);
+        height: 100%;
+        object-fit: contain;
+        flex: 1.5;
+    }
+    article{
+        padding-block-start: 5rem;
+        text-align: left;
+        align-items: flex-start;
+        flex: 1;
+    }
+    h1{
+        font-size: 2.4rem;
+        line-height: 3rem;
+    }
+    footer{
+        grid-area: Fbottom;
+        padding-block: 0rem;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+}
