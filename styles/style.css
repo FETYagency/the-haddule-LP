@@ -1,0 +1,217 @@
+@import url(reset.css);
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+h1,
+h2,
+h3 {
+  font-family: "Poppins", sans-serif;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
+.BG {
+  grid-area: 1/1/2/2;
+}
+.BG > img {
+  inline-size: 100%;
+  block-size: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+body {
+  background: linear-gradient(132deg, rgba(39, 18, 199, 0.258) 38%, rgba(241, 65, 138, 0.298) 80%), #684BB1;
+  background-size: 400%;
+  animation: 4s linear infinite alternate bgEffect;
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100vh;
+}
+
+.wrppaer {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  animation: 0.8s ease-out 1 showUp;
+  inline-size: min(87.5rem, 90%);
+  overflow-block: auto;
+  overflow-y: auto;
+  padding-block-end: 2.5rem;
+  grid-area: 1/1/2/2;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "header header" "hero text" "media media";
+  place-content: start;
+  -moz-column-gap: 3.6875rem;
+       column-gap: 3.6875rem;
+  color: white;
+  padding-inline-end: 1rem;
+}
+.wrppaer::-webkit-scrollbar {
+  display: none;
+}
+.wrppaer > header {
+  grid-area: header;
+  padding-block: 4rem 6.25rem;
+  animation: 0.4s ease-out 1 slideDown;
+}
+.wrppaer > header > a {
+  display: inline-block;
+  inline-size: 12.5rem;
+  block-size: 2rem;
+}
+.wrppaer > header > a > .logo {
+  inline-size: 100%;
+}
+.wrppaer > .heroImg {
+  grid-area: hero;
+  place-self: center stretch;
+}
+.wrppaer > .heroImg > img {
+  inline-size: 100%;
+  max-inline-size: 43.5rem;
+  max-block-size: 30.8125rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.wrppaer > .articelContent {
+  grid-area: text;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-block-start: 1.5rem;
+}
+.wrppaer > .articelContent > .articleHeader {
+  max-inline-size: 30.4375rem;
+  font-size: 2.5rem;
+  line-height: 3.75rem;
+}
+.wrppaer > .articelContent > .articlePara {
+  max-inline-size: 33.125rem;
+  font-size: 1.125rem;
+  line-height: 1.6875rem;
+}
+.wrppaer > .articelContent > button {
+  width: 12.5rem;
+  height: 3.5rem;
+  border-radius: 1.75rem;
+  background: #FFF;
+  box-shadow: 2px 4px 9px 3px rgba(0, 0, 0, 0.26);
+  border: none;
+  cursor: pointer;
+  color: #684BB1;
+  font-size: 1.125rem;
+  line-height: 1.6875rem;
+  transition: all 0.3s ease;
+}
+.wrppaer > .articelContent > button:hover {
+  background: #FF52C1;
+  color: #FFF;
+}
+.wrppaer > .socialMedia {
+  grid-area: media;
+  place-self: center end;
+  padding-block-start: 1.6875rem;
+  display: flex;
+  gap: 1rem;
+}
+.wrppaer > .socialMedia > li {
+  inline-size: 2.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  color: white;
+  border: 1px solid currentColor;
+  transition: all 0.3s ease;
+}
+.wrppaer > .socialMedia > li:hover {
+  color: #FF52C1;
+}
+.wrppaer > .socialMedia > li > a {
+  inline-size: 100%;
+  block-size: 100%;
+  display: grid;
+  place-items: center;
+  color: currentColor;
+  text-decoration: none;
+}
+
+@media (width <= 800px) {
+  .BG > img {
+    inline-size: 100%;
+    block-size: auto;
+  }
+  .wrppaer {
+    grid-template-areas: "header header" "hero hero" "text text" "media media";
+    -moz-column-gap: 0rem;
+         column-gap: 0rem;
+    row-gap: 3.75rem;
+  }
+  .wrppaer > header {
+    padding-block: 2.375rem 0rem;
+  }
+  .wrppaer > header > a {
+    inline-size: 7.5rem;
+    block-size: 1.1875rem;
+  }
+  .wrppaer > .articelContent {
+    align-items: center;
+    gap: 1rem;
+    padding-block-start: 0rem;
+    text-align: center;
+  }
+  .wrppaer > .articelContent > .articleHeader {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+  }
+  .wrppaer > .articelContent > .articlePara {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .wrppaer > .articelContent > button {
+    height: 2.5rem;
+    border-radius: 1.25rem;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+  .wrppaer > .socialMedia {
+    place-self: center;
+    padding-block-start: 0rem;
+  }
+}
+@keyframes bgEffect {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 25% 25%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  75% {
+    background-position: 75% 75%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+@keyframes showUp {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}/*# sourceMappingURL=style.css.map */
